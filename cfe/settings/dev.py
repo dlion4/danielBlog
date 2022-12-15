@@ -14,7 +14,7 @@ REDIRECT_FIELD_NAME = "next"
 # settings static
 
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -47,10 +47,10 @@ import cloudinary_storage
 # EMAIL SESSTINGS
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
 EMAIL_HOST_USER="apikey"
-EMAIL_HOST_PASSWORD=config("BLOGO_EMAIL_API_KEY")
-EMAIL_PORT = config("EMAIL_PORT")
+EMAIL_HOST_PASSWORD=os.environ.get("BLOGO_EMAIL_API_KEY")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_USE_TLS=True
 
 
